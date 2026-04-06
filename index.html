@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>C-제조 품질 현황 대시보드</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', sans-serif; background: #f4f6f9; color: #333; }
+
+    header {
+      background: #1a237e;
+      color: white;
+      padding: 24px 32px;
+    }
+    header h1 { font-size: 1.6rem; }
+    header p { font-size: 0.9rem; opacity: 0.8; margin-top: 4px; }
+
+    .container { max-width: 960px; margin: 0 auto; padding: 32px 16px; }
+
+    /* KPI 카드 */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .kpi-card {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      border-top: 4px solid #1a237e;
+    }
+    .kpi-card.warn { border-top-color: #e53935; }
+    .kpi-card.ok   { border-top-color: #43a047; }
+    .kpi-value { font-size: 2rem; font-weight: 700; color: #1a237e; }
+    .kpi-card.warn .kpi-value { color: #e53935; }
+    .kpi-card.ok   .kpi-value { color: #43a047; }
+    .kpi-label { font-size: 0.85rem; color: #666; margin-top: 6px; }
+
+    /* 섹션 */
+    .section {
+      background: white;
+      border-radius: 10px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    }
+    .section h2 { font-size: 1.1rem; color: #1a237e; margin-bottom: 16px; border-bottom: 2px solid #e8eaf6; padding-bottom: 8px; }
+
+    /* 표 */
+    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    th { background: #e8eaf6; color: #1a237e; padding: 10px; text-align: left; }
+    td { padding: 9px 10px; border-bottom: 1px solid #f0f0f0; }
+    tr:hover td { background: #fafafa; }
+    .badge { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 0.78rem; font-weight: 600; }
+    .badge-red   { background: #ffebee; color: #c62828; }
+    .badge-green { background: #e8f5e9; color: #2e7d32; }
+    .badge-blue  { background: #e3f2fd; color: #1565c0; }
+
+    /* 액션 리스트 */
+    .action-list { list-style: none; }
+    .action-list li {
+      display: flex; align-items: flex-start; gap: 12px;
+      padding: 12px 0; border-bottom: 1px solid #f0f0f0;
+    }
+    .action-list li:last-child { border-bottom: none; }
+    .num {
+      background: #1a237e; color: white;
+      width: 26px; height: 26px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.8rem; font-weight: 700; flex-shrink: 0;
+    }
+    .action-text strong { display: block; font-size: 0.95rem; }
+    .action-text span { font-size: 0.83rem; color: #666; }
+
+    footer { text-align: center; font-size: 0.8rem; color: #999; padding: 24px 0; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>C-제조 품질 현황 대시보드</h1>
+  <p>분석 기간: 2025-03-01 ~ 2025-03-05 &nbsp;|&nbsp; 담당: 송민우 &nbsp;|&nbsp; Plan 모드 기반 멀티파일 통합 분석</p>
+</header>
+
+<div class="container">
+
+  <!-- KPI 카드 3개 -->
+  <div class="kpi-grid">
+    <div class="kpi-card warn">
+      <div class="kpi-value">58%</div>
+      <div class="kpi-label">LINE-1 불량 집중률<br>(전체 95건 중 55건)</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-value">2.4%</div>
+      <div class="kpi-label">5일 평균 불량률<br>(생산량 대비)</div>
+    </div>
+    <div class="kpi-card ok">
+      <div class="kpi-value">+8~10%</div>
+      <div class="kpi-label">라인별 생산량 증가<br>(3/1 → 3/5)</div>
+    </div>
+  </div>
+
+  <!-- 생산량 대비 불량률 추이 -->
+  <div class="section">
+    <h2>생산량 대비 불량률 추이</h2>
+    <table>
+      <thead>
+        <tr><th>날짜</th><th>전체 생산량</th><th>불량 건수</th><th>불량률</th><th>상태</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>2025-03-01</td><td>519건</td><td>11건</td><td>2.1%</td><td><span class="badge badge-green">정상</span></td></tr>
+        <tr><td>2025-03-02</td><td>517건</td><td>10건</td><td>1.9%</td><td><span class="badge badge-green">정상</span></td></tr>
+        <tr><td>2025-03-03</td><td>529건</td><td>16건</td><td>3.0%</td><td><span class="badge badge-red">주의</span></td></tr>
+        <tr><td>2025-03-04</td><td>553건</td><td>14건</td><td>2.5%</td><td><span class="badge badge-blue">관찰</span></td></tr>
+        <tr><td>2025-03-05</td><td>565건</td><td>14건</td><td>2.5%</td><td><span class="badge badge-blue">관찰</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 라인별 현황 -->
+  <div class="section">
+    <h2>라인별 불량 현황 및 금형 이력</h2>
+    <table>
+      <thead>
+        <tr><th>라인</th><th>불량 건수</th><th>주요 유형</th><th>생산 증가율</th><th>금형 교체</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>LINE-1</strong></td>
+          <td><span class="badge badge-red">55건 (58%)</span></td>
+          <td>치수불량 87%</td>
+          <td>+10.3%</td>
+          <td>M-102 (3/10 예정 → 조기 검토)</td>
+        </tr>
+        <tr>
+          <td><strong>LINE-2</strong></td>
+          <td><span class="badge badge-blue">21건 (22%)</span></td>
+          <td>표면불량 62%</td>
+          <td>+8.1%</td>
+          <td>M-201 교체 완료 (3/3)</td>
+        </tr>
+        <tr>
+          <td><strong>LINE-3</strong></td>
+          <td><span class="badge badge-red">19건 (20%)</span></td>
+          <td>균열 100%</td>
+          <td>+8.0%</td>
+          <td>M-302 교체(2/28) 후 재증가 중</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 다음 액션 -->
+  <div class="section">
+    <h2>우선 조치 3가지</h2>
+    <ul class="action-list">
+      <li>
+        <div class="num">1</div>
+        <div class="action-text">
+          <strong>LINE-1 오전 치수 기준값 재확인 절차 추가</strong>
+          <span>교대 직후 기준값 점검 → 불량 30~40% 감소 기대 | 이번 주 내 체크리스트 개정 요청</span>
+        </div>
+      </li>
+      <li>
+        <div class="num">2</div>
+        <div class="action-text">
+          <strong>LINE-3 소재 입고 검사 강화 + 프레스 압력 주간 점검</strong>
+          <span>균열 재발 → 소재 공급사 품질 협의 일정 확인 | 균열 50% 이상 감소 기대</span>
+        </div>
+      </li>
+      <li>
+        <div class="num">3</div>
+        <div class="action-text">
+          <strong>LINE-1 금형 M-102 조기 교체 (3/10 → 3/7)</strong>
+          <span>치수불량 선제 차단 | 교체 후 불량률 1.8% 수준으로 개선 예상 (M-101 사례 기준)</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+</div>
+
+<footer>
+  생성: Claude Code + Plan 모드 멀티파일 분석 &nbsp;|&nbsp; 데이터: defect_log.csv · production.csv · mold_history.csv
+</footer>
+
+</body>
+</html>
