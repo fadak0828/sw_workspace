@@ -8,7 +8,24 @@
       "Bash(git init:*)",
       "Bash(gh repo:*)",
       "Bash(git add:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(git symbolic-ref:*)",
+      "Bash(git rev-list:*)",
+      "Bash(git remote:*)",
+      "WebSearch",
+      "WebFetch(domain:www.iso.org)",
+      "WebFetch(domain:www.leanproduction.com)",
+      "WebFetch(domain:tc56.iec.ch)",
+      "WebFetch(domain:blog.ansi.org)",
+      "WebFetch(domain:consciousreliability.com)",
+      "Skill(update-config)",
+      "Skill(update-config:*)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(gh api:*)",
+      "Bash(git clone:*)",
+      "Skill(docs-guide:docs-guide)",
+      "Skill(docs-guide:docs-guide:*)"
     ]
   }
 }
