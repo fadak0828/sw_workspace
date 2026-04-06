@@ -1,0 +1,26 @@
+# 환경 설정
+.env
+.env.*
+
+# 로그
+*.log
+logs/
+
+# OS 파일
+.DS_Store
+Thumbs.db
+
+# 임시 파일
+*.tmp
+*.temp
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+.venv/
+
+# Node.js
+node_modules/
+dist/

@@ -1,0 +1,7 @@
+{
+  "enabledPlugins": {
+    "git-teacher@gptaku-plugins": true,
+    "docs-guide@gptaku-plugins": true,
+    "skills-2.0-upgrade@tofukyung-plugins": true
+  }
+}
