@@ -25,7 +25,8 @@
       "Bash(gh api:*)",
       "Bash(git clone:*)",
       "Skill(docs-guide:docs-guide)",
-      "Skill(docs-guide:docs-guide:*)"
+      "Skill(docs-guide:docs-guide:*)",
+      "Bash(git push:*)"
     ]
   }
 }
