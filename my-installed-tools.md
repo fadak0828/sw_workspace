@@ -25,3 +25,6 @@
 | superpowers | claude-plugins-official | 작업 전 구조 먼저 잡고 싶을 때 |
 | skills-2.0-upgrade | tofukyung-plugins | 스킬 품질 진단할 때 (4교시 예정) |
 | lesson-skill | tofukyung-plugins | 실습 강의 진행할 때 |
+
+## Practice 04 — 이 작업에서 먼저 꺼낼 capability
+불량 패턴 분석 전에 brainstorming으로 기준 먼저 잡기
